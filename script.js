@@ -16,8 +16,14 @@ const dogScoreElement = document.getElementById('dogScore');
 
 function initializeTicTacToe() {
     cells.forEach(cell => {
+        cell.classList.remove('cat', 'dog');
+        cell.textContent = '';
+        cell.removeEventListener('click', handleCellClick); // Remove any previous listeners
         cell.addEventListener('click', handleCellClick);
     });
+    gameActive = true;
+    isCatTurn = true;
+    status.textContent = "🐱 Cat's turn";
 }
 
 function handleCellClick(e) {
@@ -147,16 +153,27 @@ guessInput.addEventListener('keypress', (e) => {
 
 // Spanish Translation Game
 const spanishWords = [
-    { spanish: 'HOLA', english: 'HELLO' },
-    { spanish: 'ADIOS', english: 'GOODBYE' },
-    { spanish: 'GRACIAS', english: 'THANK YOU' },
-    { spanish: 'POR FAVOR', english: 'PLEASE' },
-    { spanish: 'SÍ', english: 'YES' },
-    { spanish: 'NO', english: 'NO' },
-    { spanish: 'BUENOS DÍAS', english: 'GOOD MORNING' },
-    { spanish: 'BUENAS NOCHES', english: 'GOOD NIGHT' },
-    { spanish: 'AGUA', english: 'WATER' },
-    { spanish: 'PAN', english: 'BREAD' }
+    // Only words with 6 or more letters
+    { spanish: 'escuela', english: 'school' },
+    { spanish: 'ventana', english: 'window' },
+    { spanish: 'familia', english: 'family' },
+    { spanish: 'amigos', english: 'friends' },
+    { spanish: 'cocinar', english: 'to cook' },
+    { spanish: 'hermano', english: 'brother' },
+    { spanish: 'hermana', english: 'sister' },
+    { spanish: 'caminar', english: 'to walk' },
+    { spanish: 'escribir', english: 'to write' },
+    { spanish: 'computadora', english: 'computer' },
+    { spanish: 'biblioteca', english: 'library' },
+    { spanish: 'montaña', english: 'mountain' },
+    { spanish: 'película', english: 'movie' },
+    { spanish: 'zapatos', english: 'shoes' },
+    { spanish: 'cuchara', english: 'spoon' },
+    { spanish: 'ventilador', english: 'fan' },
+    { spanish: 'cuchillo', english: 'knife' },
+    { spanish: 'espejo', english: 'mirror' },
+    { spanish: 'pintura', english: 'painting' },
+    { spanish: 'relojero', english: 'watchmaker' }
 ];
 
 let spanishScore = 0;
@@ -178,9 +195,8 @@ function startNewSpanishWord() {
 }
 
 function checkTranslation() {
-    const guess = translationInput.value.trim().toUpperCase();
-    const correctAnswer = spanishWords.find(pair => pair.spanish === currentSpanishWord).english;
-    
+    const guess = translationInput.value.trim().toLowerCase();
+    const correctAnswer = spanishWords.find(pair => pair.spanish === currentSpanishWord).english.toLowerCase();
     if (guess === correctAnswer) {
         spanishScore++;
         spanishScoreElement.textContent = spanishScore;
@@ -497,4 +513,11 @@ document.querySelectorAll('.restart-button').forEach(button => {
                 break;
         }
     });
+});
+
+// On page load, initialize the board and allow the user to play immediately
+window.addEventListener('DOMContentLoaded', () => {
+    if (typeof initializeTicTacToe === 'function') {
+        initializeTicTacToe();
+    }
 }); 
