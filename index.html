@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Bored Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>I'm Bored Games</h1>
+        <div class="games-grid">
+            <!-- First Row -->
+            <!-- Tic Tac Toe -->
+            <div class="game-container">
+                <h2>Cat vs Dog Tic Tac Toe</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">🐱 Cats</span>
+                        <span id="catScore">0</span>
+                    </div>
+                    <div class="score">
+                        <span class="player">🐶 Dogs</span>
+                        <span id="dogScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="tictactoe-status">🐱 Cat's turn</div>
+                <div class="game-board" id="tictactoe-board">
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                </div>
+                <button class="restart-button" data-game="tictactoe">Start New Game</button>
+            </div>
+
+            <!-- Hangman -->
+            <div class="game-container">
+                <h2>Hangman</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">Wins</span>
+                        <span id="hangmanScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="hangman-status">Guess the word!</div>
+                <div class="hangman-container">
+                    <div class="hangman-display" id="hangman-display">
+                        <div class="word-display" id="word-display"></div>
+                        <div class="hangman-figure" id="hangman-figure"></div>
+                    </div>
+                    <div class="keyboard" id="keyboard"></div>
+                </div>
+                <button class="restart-button" data-game="hangman">New Word</button>
+            </div>
+
+            <!-- Rock Paper Scissors -->
+            <div class="game-container">
+                <h2>Rock Paper Scissors</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">You</span>
+                        <span id="playerScore">0</span>
+                    </div>
+                    <div class="score">
+                        <span class="player">Computer</span>
+                        <span id="computerScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="rps-status">Choose your move!</div>
+                <div class="rps-container">
+                    <div class="choices">
+                        <button class="rps-choice" data-choice="rock">✊</button>
+                        <button class="rps-choice" data-choice="paper">✋</button>
+                        <button class="rps-choice" data-choice="scissors">✌️</button>
+                    </div>
+                    <div class="rps-result" id="rps-result"></div>
+                </div>
+                <button class="restart-button" data-game="rps">Reset Score</button>
+            </div>
+
+            <!-- Second Row -->
+            <!-- Word Scramble -->
+            <div class="game-container">
+                <h2>Word Scramble</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">Score</span>
+                        <span id="scrambleScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="scramble-status">Guess the word!</div>
+                <div class="scramble-container">
+                    <div class="scrambled-word" id="scrambled-word"></div>
+                    <div class="guess-container">
+                        <input type="text" id="guess-input" placeholder="Type your guess">
+                        <button id="guess-button">Guess</button>
+                    </div>
+                </div>
+                <button class="restart-button" data-game="scramble">New Word</button>
+            </div>
+
+            <!-- State Capitals Trivia -->
+            <div class="game-container">
+                <h2>State Capitals Trivia</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">Score</span>
+                        <span id="triviaScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="trivia-status">Ready to test your knowledge!</div>
+                <div class="trivia-container">
+                    <div class="question" id="trivia-question"></div>
+                    <div class="options" id="trivia-options"></div>
+                </div>
+                <button class="restart-button" data-game="trivia">New Question</button>
+            </div>
+
+            <!-- Spanish Translation -->
+            <div class="game-container">
+                <h2>Spanish Translation</h2>
+                <div class="score-board">
+                    <div class="score">
+                        <span class="player">Score</span>
+                        <span id="spanishScore">0</span>
+                    </div>
+                </div>
+                <div class="status" id="spanish-status">What is this word in English?</div>
+                <div class="spanish-container">
+                    <div class="spanish-word" id="spanish-word"></div>
+                    <div class="translation-container">
+                        <input type="text" id="translation-input" placeholder="Type the English word">
+                        <button id="translation-button">Check</button>
+                    </div>
+                </div>
+                <button class="restart-button" data-game="spanish">New Word</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
